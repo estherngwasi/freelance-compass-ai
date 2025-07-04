@@ -158,9 +158,9 @@ const Portfolio = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold">Portfolio</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold">Portfolio</h1>
           <p className="text-muted-foreground">Showcase your best work and projects</p>
         </div>
         
@@ -172,7 +172,7 @@ const Portfolio = () => {
           }}
         >
           <DialogTrigger asChild>
-            <Button>
+            <Button className="self-start sm:self-center">
               <Plus className="w-4 h-4 mr-2" />
               Add Project
             </Button>
@@ -287,7 +287,7 @@ const Portfolio = () => {
           </CardContent>
         </Card>
       ) : (
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
           {portfolioItems.map((item) => (
             <Card key={item.id} className="overflow-hidden">
               {item.image_url && (

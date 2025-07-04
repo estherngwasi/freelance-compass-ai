@@ -46,6 +46,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           variant="outline"
           size="sm"
           onClick={() => setSidebarOpen(!sidebarOpen)}
+          className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
         >
           <Menu className="h-4 w-4" />
         </Button>
@@ -115,7 +116,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       {/* Main content */}
       <div className="lg:pl-64">
-        <div className="p-6 lg:p-8">
+        <div className="p-4 sm:p-6 lg:p-8">
           {children}
         </div>
       </div>

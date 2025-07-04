@@ -140,15 +140,15 @@ const Tasks = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold">Tasks</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold">Tasks</h1>
           <p className="text-muted-foreground">Manage your tasks in Kanban format</p>
         </div>
         
         <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
           <DialogTrigger asChild>
-            <Button>
+            <Button className="self-start sm:self-center">
               <Plus className="w-4 h-4 mr-2" />
               Add Task
             </Button>
@@ -223,25 +223,25 @@ const Tasks = () => {
         </Dialog>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 overflow-x-auto">
         {Object.entries(groupedTasks).map(([status, statusTasks]) => (
-          <div key={status} className="space-y-4">
-            <div className="flex items-center gap-2">
-              <h2 className="font-semibold capitalize">
+          <div key={status} className="min-w-[280px] space-y-4">
+            <div className="flex items-center gap-2 sticky top-0 bg-background/95 backdrop-blur py-2">
+              <h2 className="font-semibold capitalize text-sm sm:text-base">
                 {status.replace('_', ' ')} ({statusTasks.length})
               </h2>
               {getStatusIcon(status)}
             </div>
             
-            <div className="space-y-3">
+            <div className="space-y-3 pb-4">
               {statusTasks.map((task) => (
                 <Card key={task.id} className="cursor-pointer hover:bg-muted/50 transition-colors">
                   <CardHeader className="pb-2">
-                    <div className="flex justify-between items-start">
-                      <CardTitle className="text-sm">
+                    <div className="flex justify-between items-start gap-2">
+                      <CardTitle className="text-sm leading-tight">
                         {task.title || task.task_title}
                       </CardTitle>
-                      <Badge variant={getStatusColor(task.status)}>
+                      <Badge variant={getStatusColor(task.status)} className="text-xs shrink-0">
                         {task.status}
                       </Badge>
                     </div>

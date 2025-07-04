@@ -1,13 +1,13 @@
 import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/button';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { 
-  LayoutDashboard, 
-  User, 
-  Users, 
-  FileText, 
-  CheckSquare, 
-  Briefcase, 
+import {
+  LayoutDashboard,
+  User,
+  Users,
+  FileText,
+  CheckSquare,
+  Briefcase,
   LogOut,
   Menu
 } from 'lucide-react';
@@ -54,7 +54,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       {/* Sidebar */}
       <div className={cn(
-        "fixed inset-y-0 left-0 z-40 w-64 bg-sidebar border-r transform transition-transform duration-200 ease-in-out",
+        "fixed inset-y-0 left-0 z-40 w-56 bg-sidebar border-r transform transition-transform duration-200 ease-in-out",
         sidebarOpen ? "translate-x-0" : "-translate-x-full",
         "lg:translate-x-0 lg:static lg:inset-0"
       )}>
@@ -72,7 +72,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             {navigationItems.map((item) => {
               const Icon = item.icon;
               const isActive = location.pathname === item.href;
-              
+
               return (
                 <Button
                   key={item.name}
@@ -108,17 +108,17 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       {/* Overlay for mobile */}
       {sidebarOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/50 z-30 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {/* Main content */}
-      <div className="lg:pl-64">
-        <div className="p-4 sm:p-6 lg:p-8">
+      <div className="lg:pl-56">
+        <main className="p-4 sm:p-6 max-w-5xl mx-auto w-full">
           {children}
-        </div>
+        </main>
       </div>
     </div>
   );

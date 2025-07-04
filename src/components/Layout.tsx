@@ -116,7 +116,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       {/* Main content */}
       <div className="lg:pl-56">
-        <main className="p-4 sm:p-6 max-w-5xl mx-auto w-full">
+        <main className="pt-0 px-4 sm:px-6 w-full max-w-5xl mx-auto">
           {children}
         </main>
       </div>

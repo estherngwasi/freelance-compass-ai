@@ -53,11 +53,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </div>
 
       {/* Sidebar */}
-      <div className={cn(
-        "fixed inset-y-0 left-0 z-40 w-56 bg-sidebar border-r transform transition-transform duration-200 ease-in-out",
-        sidebarOpen ? "translate-x-0" : "-translate-x-full",
-        "lg:translate-x-0 lg:static lg:inset-0"
-      )}>
+      <div
+        className={cn(
+          "fixed inset-y-0 left-0 z-40 w-56 bg-sidebar border-r transform transition-transform duration-200 ease-in-out",
+          sidebarOpen ? "translate-x-0" : "-translate-x-full",
+          "lg:translate-x-0 lg:static lg:inset-0"
+        )}
+      >
         <div className="flex flex-col h-full">
           <div className="p-6 border-b">
             <h2 className="text-xl font-bold text-sidebar-foreground">
@@ -115,8 +117,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       )}
 
       {/* Main content */}
-      <div className="lg:pl-56">
-        <main className="pt-0 px-4 sm:px-6 w-full max-w-5xl mx-auto">
+      <div className="lg:ml-56">
+        <main className="px-4 sm:px-6 max-w-7xl mx-auto w-full">
           {children}
         </main>
       </div>
